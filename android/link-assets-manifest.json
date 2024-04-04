@@ -2,111 +2,75 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "assets/effects/aviators",
-      "sha1": "d70a97558cc4d9a4df47df096772417e5aad2c18"
+      "path": "assets/effects/8bitHearts.deepar",
+      "sha1": "d6d048c369cec2a943ad483b14681d1dd72f5bb0"
     },
     {
-      "path": "assets/effects/background_segmentation",
-      "sha1": "219918b714a93fd4a1157d55969e256032c9441a"
+      "path": "assets/effects/Elephant_Trunk.deepar",
+      "sha1": "95f91debb4a5beb3f673e9ee1f183a881c3f0b27"
     },
     {
-      "path": "assets/effects/ball_face",
-      "sha1": "574865775ca23b536ea86999061b573453d579d7"
-    },
-    {
-      "path": "assets/effects/beard",
-      "sha1": "c305727fbb978926a5e468f6b0e7765b1451f7ce"
-    },
-    {
-      "path": "assets/effects/beauty",
-      "sha1": "9d7e8e0bfc5c9917f138e21a619dea181ae145ce"
-    },
-    {
-      "path": "assets/effects/emotion_meter",
+      "path": "assets/effects/Emotion_Meter.deepar",
       "sha1": "395a8f5443e03c477a706eff3bb0c09e150b6dc5"
     },
     {
-      "path": "assets/effects/emotions_exaggerator",
+      "path": "assets/effects/Emotions_Exaggerator.deepar",
       "sha1": "4a4a8fb8f163c6fd7b9f6a50c519e91fddb81570"
     },
     {
-      "path": "assets/effects/face_painting",
-      "sha1": "9d9a940b386ea513349c5cf512bc356938ae4e42"
-    },
-    {
-      "path": "assets/effects/fairy_lights",
-      "sha1": "65bd412586003aee641395e98ed2ef1730509051"
-    },
-    {
-      "path": "assets/effects/fire_effect",
+      "path": "assets/effects/Fire_Effect.deepar",
       "sha1": "29b48e40730acd702e526fc80943de7b6fc31d4a"
     },
     {
-      "path": "assets/effects/flower_crown",
-      "sha1": "f9f72c8d60189c5b60f8bd349415beb146e4d75e"
+      "path": "assets/effects/Hope.deepar",
+      "sha1": "73b8ca558412c380bc7aa9fb42eec9fdd244dac2"
     },
     {
-      "path": "assets/effects/frankenstein",
-      "sha1": "73d4a8fa2f1f164c34d5621ec57c2eb230455444"
-    },
-    {
-      "path": "assets/effects/hair_segmentation",
-      "sha1": "35b479e41ea4c1ca6d247de544d5595c33183032"
-    },
-    {
-      "path": "assets/effects/humanoid",
+      "path": "assets/effects/Humanoid.deepar",
       "sha1": "d55892fe97d2adc83768a83fef4ca2979cd8966f"
     },
     {
-      "path": "assets/effects/lion",
-      "sha1": "9d70db33a0b97236d1412cf41e1145f563ecaed4"
+      "path": "assets/effects/MakeupLook.deepar",
+      "sha1": "4c675e9adafe9464365fdfcd4c7d35bb58072046"
     },
     {
-      "path": "assets/effects/look1",
-      "sha1": "9520c68d008be5756f253df962a6b440f568af31"
+      "path": "assets/effects/Neon_Devil_Horns.deepar",
+      "sha1": "22a5b00c55000d1532e1ef0074f5940d573032ef"
     },
     {
-      "path": "assets/effects/look2",
-      "sha1": "c1dda1d553246c57fb73bb24d80664598437dffb"
-    },
-    {
-      "path": "assets/effects/manly_face",
-      "sha1": "eed8845684abbcc0140619e19ab5a1d37b577862"
-    },
-    {
-      "path": "assets/effects/ping_pong",
+      "path": "assets/effects/Ping_Pong.deepar",
       "sha1": "116b85b69cd831a8946e957ef8c8657eccf3af6b"
     },
     {
-      "path": "assets/effects/plastic_ocean",
-      "sha1": "654d4ce7bb052421407ba114faf3423f8170d969"
+      "path": "assets/effects/Snail.deepar",
+      "sha1": "66865c0757c028b858a31efc43d67c7d34c0746f"
     },
     {
-      "path": "assets/effects/pumpkin",
-      "sha1": "e18ede43f66f362b8522cfc2bbc2d3a7dac05daa"
+      "path": "assets/effects/Split_View_Look.deepar",
+      "sha1": "868ad0479ae16155e8b401863f428fc1154e0f2d"
     },
     {
-      "path": "assets/effects/scuba",
-      "sha1": "00178c665bf71de0a150435ffe885d993721970a"
-    },
-    {
-      "path": "assets/effects/stallone",
+      "path": "assets/effects/Stallone.deepar",
       "sha1": "e28b9a49242d968d5e194f7fecfa8e83c8b2882a"
     },
     {
-      "path": "assets/effects/tape_face",
-      "sha1": "773fc3c1b2e190f65744de4496fce238ece8a6d5"
+      "path": "assets/effects/Vendetta_Mask.deepar",
+      "sha1": "d7c46e58d09a542699be5a55e8f3d92195bc54e1"
     },
     {
-      "path": "assets/effects/tiny_sunglasses",
-      "sha1": "c31c015ae49852faff3a99b2f8e00031198e9bfd"
+      "path": "assets/effects/burning_effect.deepar",
+      "sha1": "5891abde7778699f4de0bfadf85b96a49ff24826"
     },
     {
-      "path": "assets/effects/topology",
-      "sha1": "e5cbab1f3916e1546aba65d7f05e55b1e8d4d8cc"
+      "path": "assets/effects/flower_face.deepar",
+      "sha1": "fcbc4eeb12a9c8373b80f4854f93fdafb1a500ca"
     },
     {
-      "path": "assets/effects/viking_helmet",
+      "path": "assets/effects/galaxy_background.deepar",
+      "sha1": "2959c76c4fba9171717d2b16ee228308b1241af7"
+    },
+    {
+      "path": "assets/effects/viking_helmet.deepar",
       "sha1": "4fe4d10e9dcf910d87e2eb96135762c18c6d3bcd"
     }
   ]

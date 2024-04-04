@@ -10,12 +10,12 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
         }}>
         <Text style={styles.text}>Go Camera Screen</Text>
       </TouchableOpacity>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => {
           navigation.navigate('Preview');
         }}>
         <Text style={styles.text}>Go Preview Screen</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };

@@ -1,17 +1,95 @@
-
-import {Image, Platform, StyleSheet, Text, View} from 'react-native';
-import React, {useRef} from 'react';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
 import DeepARView, {CameraPositions, IDeepARHandle} from 'react-native-deepar';
+import {images} from '../constants/images';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
+import {effects} from '../constants/effects';
 
 const CameraView = () => {
   const deepARRef = useRef<IDeepARHandle>(null);
   const insets = useSafeAreaInsets();
   const navigation = useNavigation();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [cameraState, setCameraState] = useState<
+    CameraPositions.FRONT | CameraPositions.BACK
+  >(CameraPositions.FRONT);
+
+  useEffect(() => {
+    deepARRef?.current?.switchEffect({
+      mask: effects[activeIndex]?.name as string,
+      slot: 'effect',
+    });
+    //   deepARRef?.current?.switchEffect({
+    //     mask: effects[activeIndex]?.name as string,
+    //     slot: 'mask',
+    //   });
+  }, [activeIndex]);
+
+  const changeEffect = (direction: number) => {
+    if (!deepARRef) {
+      return;
+    }
+
+    let newIndex = direction > 0 ? activeIndex + 1 : activeIndex - 1;
+
+    if (newIndex >= effects.length) {
+      newIndex = 0;
+    }
+
+    if (newIndex < 0) {
+      newIndex = effects.length - 1;
+    }
+    setActiveIndex(newIndex);
+  };
+
+  const takeScreenshot = () => {
+    if (deepARRef) {
+      deepARRef?.current?.takeScreenshot();
+    }
+  };
+
+  const renderBottom = () => {
+    return (
+      <View style={styles.bottomAbsView}>
+        <View style={styles.rowView}>
+          <TouchableOpacity
+            style={styles.nextPrevBackground}
+            onPress={() => changeEffect(-1)}>
+            <Image source={images.left} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.captureView}
+            onPress={takeScreenshot}
+          />
+          <TouchableOpacity
+            style={styles.nextPrevBackground}
+            onPress={() => changeEffect(1)}>
+            <Image source={images.right} />
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.textCenter}>{effects?.[activeIndex]?.title}</Text>
+      </View>
+    );
+  };
 
   return (
     <View style={{flex: 1, paddingTop: insets.top}}>
+      <TouchableOpacity
+        style={{
+          alignSelf: 'flex-start',
+          marginLeft: 20,
+        }}
+        onPress={() => navigation.goBack()}>
+        <Image source={images.backIcon} />
+      </TouchableOpacity>
       <DeepARView
         ref={deepARRef}
         apiKey={
@@ -21,13 +99,31 @@ const CameraView = () => {
         }
         style={{flex: 1}}
         onInitialized={() => {
-          console.log('INITIALIZED');
+          console.log('Initiated');
         }}
-        position={CameraPositions.FRONT}
+        position={cameraState}
         onError={(text, type) => {
           console.log('onError =>', text, 'type =>', type);
         }}
+        onScreenshotTaken={(screenshotPath: String) => {
+          console.log('screenshotPath', screenshotPath);
+          const path = 'file://' + screenshotPath;
+          navigation.navigate('Preview', {
+            path: path,
+            type: 'photo',
+          });
+        }}
       />
+      {renderBottom()}
+      <TouchableOpacity
+        style={styles.cameraContainer}
+        onPress={() =>
+          cameraState === CameraPositions.FRONT
+            ? setCameraState(CameraPositions.BACK)
+            : setCameraState(CameraPositions.FRONT)
+        }>
+        <Image source={images.cameraRotate} />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -35,54 +131,42 @@ const CameraView = () => {
 export default CameraView;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  upLeftButtons: {
+  bottomAbsView: {
     position: 'absolute',
-    alignItems: 'flex-start',
-    left: 20,
-    top: 40,
+    bottom: 20,
+    width: '100%',
+    zIndex: 100,
   },
-  upLeftButton: {
-    marginBottom: 10,
-  },
-  switchCameraButton: {
-    position: 'absolute',
-    top: 40,
-    right: 40,
-  },
-  cameraIcon: {
-    width: 50,
-    height: 40,
-  },
-  bottomButtonContainer: {
-    position: 'absolute',
+  rowView: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    bottom: 60,
+    justifyContent: 'space-evenly',
+  },
+  textCenter: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 18,
+    fontWeight: '600',
+    marginTop: 10,
+  },
+  captureView: {
     height: 50,
+    width: 50,
+    borderRadius: 25,
+    backgroundColor: 'white',
   },
-  screenshotIcon: {
-    width: 70,
-    height: 70,
+  nextPrevBackground: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 4,
   },
-  title: {
+  cameraContainer: {
     position: 'absolute',
-    bottom: 10,
-    fontSize: 20,
-    color: '#FFF',
-    backgroundColor: '#000',
-    borderWidth: 1,
-    borderColor: '#FFF',
-    paddingHorizontal: 10,
-    borderRadius: 5,
-  },
-  notSupportedEffectName: {
-    color: '#F00',
+    zIndex: 100,
+    backgroundColor: 'white',
+    padding: 4,
+    right: 20,
+    bottom: 150,
+    borderRadius: 20,
   },
 });
