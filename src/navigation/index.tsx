@@ -13,6 +13,7 @@ export default () => {
       }}>
       <Stack.Screen name="Home" component={Screens.HomeScreen} />
       <Stack.Screen name="Camera" component={Screens.CameraScreen} />
+      <Stack.Screen name="Preview" component={Screens.Preview} />
     </Stack.Navigator>
   );
 };
