@@ -2,7 +2,7 @@
 
 #react-native-deepar
 
-Do following chanes inside node_modules/react-native-deepar/android/buil.gradle
+Do following changes inside node_modules/react-native-deepar/android/buil.gradle
 
  compileSdkVersion safeExtGet('Deepar_compileSdkVersion', 34)
   buildToolsVersion safeExtGet('Deepar_buildToolsVersion', '34.0.0')
